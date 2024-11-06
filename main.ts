@@ -4,6 +4,7 @@ namespace SpriteKind {
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (info.score() > 1 && tiles.tileAtLocationEquals(mySprite.tilemapLocation(), assets.tile`myTile`)) {
+        info.changeScoreBy(-1)
         myTower = sprites.create(img`
             . . . . . . . . . . . . . . . . 
             . 6 6 6 6 6 6 6 6 6 6 6 6 6 6 . 
@@ -23,15 +24,16 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
             . . . . . . . . . . . . . . . . 
             `, SpriteKind.Tower)
         tiles.placeOnTile(myTower, mySprite.tilemapLocation())
+        mySprite.lifespan = 4000
     }
 })
-scene.onHitWall(SpriteKind.Enemy, function (sprite, location) {
-    game.gameOver(false)
-})
-sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite2, otherSprite) {
     sprites.destroy(mySprite)
     sprites.destroy(otherSprite)
     info.changeScoreBy(1)
+})
+scene.onHitWall(SpriteKind.Enemy, function (sprite, location) {
+    game.gameOver(false)
 })
 let projectile: Sprite = null
 let myEnemy: Sprite = null

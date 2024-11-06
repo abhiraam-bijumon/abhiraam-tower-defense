@@ -2,7 +2,8 @@
     "name": "Abhiraam  Tower Defense",
     "description": "",
     "dependencies": {
-        "device": "*"
+        "device": "*",
+        "arcade-minimap": "github:microsoft/arcade-minimap#v0.6.1"
     },
     "files": [
         "main.blocks",
@@ -10,7 +11,8 @@
         "README.md",
         "assets.json",
         "tilemap.g.jres",
-        "tilemap.g.ts"
+        "tilemap.g.ts",
+        "main.py"
     ],
     "testFiles": [
         "test.ts"
