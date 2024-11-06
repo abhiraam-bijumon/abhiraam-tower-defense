@@ -1,0 +1,30 @@
+{
+    "name": "Abhiraam  Tower Defense",
+    "description": "",
+    "dependencies": {
+        "device": "*"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "tilemap.g.jres",
+        "tilemap.g.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "branch": "v1.12.21",
+        "tag": "v1.12.21",
+        "commits": "https://github.com/microsoft/pxt-arcade/commits/0cb2da5a909e7062f4a7611a9c2d9f35446a3657",
+        "target": "1.12.57",
+        "pxt": "8.5.29",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "blocksprj"
+}
