@@ -28,6 +28,7 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
 scene.onHitWall(SpriteKind.Enemy, function (sprite, location) {
     game.gameOver(false)
 })
+let projectile: Sprite = null
 let myEnemy: Sprite = null
 let myTower: Sprite = null
 let mySprite: Sprite = null
@@ -70,4 +71,26 @@ game.onUpdateInterval(2000, function () {
         `, SpriteKind.Enemy)
     tiles.placeOnRandomTile(myEnemy, assets.tile`myTile2`)
     myEnemy.vx = -20
+})
+game.onUpdateInterval(500, function () {
+    for (let value of sprites.allOfKind(SpriteKind.Tower)) {
+        projectile = sprites.createProjectileFromSprite(img`
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . 6 6 6 6 6 . . . . . . . 
+            . . . . 6 6 6 6 6 6 . . . . . . 
+            . . . 6 6 6 6 6 6 6 6 6 . . . . 
+            . . 6 6 6 6 6 6 6 6 6 6 6 . . . 
+            . . 6 6 6 6 6 6 6 6 6 6 6 . . . 
+            . . 6 6 6 6 6 6 6 6 6 6 . . . . 
+            . . 6 6 6 6 6 6 6 6 6 6 . . . . 
+            . . 6 6 6 6 6 6 6 6 6 6 6 . . . 
+            . . . 6 6 6 6 6 6 6 6 6 6 . . . 
+            . . . . . 6 6 6 6 6 6 6 6 . . . 
+            . . . . . . . 6 6 6 6 6 6 . . . 
+            . . . . . . . . . . . . . . . . 
+            . . . . . . . . . . . . . . . . 
+            `, value, 50, 0)
+    }
 })
